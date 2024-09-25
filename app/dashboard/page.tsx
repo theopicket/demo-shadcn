@@ -1,9 +1,10 @@
 import { AppSidebar } from "~/components/app-sidebar";
 import { SidebarLayout, SidebarTrigger } from "~/components/ui/sidebar";
+import { cookies } from "next/headers";
 
 export default async function Page() {
-  const { cookies } = await import("next/headers");
   const defaultOpen = cookies().get("sidebar:state")?.value === "true";
+
   return (
     <SidebarLayout defaultOpen={defaultOpen}>
       <AppSidebar />
